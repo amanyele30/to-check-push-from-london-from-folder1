@@ -1,0 +1,13 @@
+--- # for checking concept of file,directory editing copy
+- hosts: webservers
+  become: true
+  user: ansible
+  connection: ssh
+
+  tasks:
+    
+    - name: creating a file
+      file: path=/tmp/file3.yml state=file    
+
+        
+

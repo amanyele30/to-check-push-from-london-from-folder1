@@ -1,0 +1,20 @@
+--- # tp clear my concept of playbook where to give - and not
+- name: for wenserver host1
+  hosts: webservers[0]
+  become: true
+  user: ansible
+  connection: ssh
+
+  tasks:
+    - name: mpty filee
+      file: 
+        name: file11
+        state: file
+
+- name: for webserver host2
+  hosts: webservers[1]
+  become: yes
+  tasks:
+    - file:
+        name: file22
+        state: file     

@@ -1,0 +1,18 @@
+--- # here user add karne gaya 2re ignore ke bad to nahi huva creat and file se create nahi ho rahi new file touch se hue
+- name: for wenserver host1
+  hosts: webservers
+
+  tasks:
+    - name: installing sw tree
+      action: yum  pkg=tre state=present
+      ignore_errors: yes
+
+    - name: removing sw docker
+      action: yum pkg=docke  state=absent
+      ignore_errors: yes
+    
+    - name: adding user
+      file:
+         path: /home/ansible/checkfile
+         state: touch     
+    

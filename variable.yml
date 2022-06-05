@@ -1,0 +1,25 @@
+--- # variable section
+- hosts: all
+  become: yes
+   
+  vars:
+     pkg: tree
+    
+  tasks: 
+    - name: installing sw htpd
+      action: yum name="{{pk}}" state=installed
+      ignore_errors: yes  
+
+  vars:
+    soft: tree
+  tasks:
+    - name: to remove sw
+      yum:
+        name: "{{sft}}"
+        state: present
+      ignore_errors: yes
+     
+    - name: adding user
+      user:
+        name: pana    
+

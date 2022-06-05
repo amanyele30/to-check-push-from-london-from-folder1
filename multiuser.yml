@@ -1,0 +1,13 @@
+--- # for adding multiple user with help of loop
+- hosts: all
+  user: ansible
+  become: true
+
+  hosts:
+    - name: multi users
+      user: name="{{item}}" state=present
+      with_items:
+            - okk
+            - gaj
+            - saj
+            - jaj  

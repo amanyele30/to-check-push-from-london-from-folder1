@@ -1,0 +1,5 @@
+vars: 
+  user: pommm
+    user: name="{{user}}"
+        
+

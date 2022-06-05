@@ -1,0 +1,16 @@
+--- # for copying of file
+- hosts: all
+  become: true
+
+  tasks:
+    - name: for copying a file from src to dest
+      copy:
+        src:  ./apache
+        dest: /home/ansible
+      ignore_error: yes      
+
+    - name: for checking edit of coded file
+      file: path=/tmp/4thifile state=file
+...
+
+

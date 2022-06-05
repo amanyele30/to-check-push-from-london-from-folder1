@@ -1,0 +1,11 @@
+--- # to install package
+- hosts: webservers
+  user: ansible
+  become: true
+  connection: ssh
+
+  task:
+    - name: install docker sw in hosts
+      yum:
+        name: git*
+        state: absent  

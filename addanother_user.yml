@@ -1,0 +1,9 @@
+--- # create user playbook
+- name: my test file
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: creating user kiran
+      user: 
+        name: ran  

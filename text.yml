@@ -1,0 +1,14 @@
+--- # my text file for rechecking of error
+- hosts: webservers
+  user: ansible
+  become: yes
+  connection: ssh
+   
+  tasks:
+    - name: installing httpd s/w on webservers
+      action: yum name=httpdstate=installed
+      ignore_errors: yes
+
+    - name: Un-installing tree sw
+      action: yum name=tree state=absent    
+

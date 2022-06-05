@@ -1,0 +1,11 @@
+--- # for directory creation
+- name: for directory
+  hosts: all
+  user: ansible
+  become: yes
+
+  tasks:
+    - name: creating folder
+      file:
+        path: /home/ansible/folder1
+        state: directory  

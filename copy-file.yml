@@ -1,0 +1,13 @@
+--- # coping file
+- name: my test playboook
+  hosts: all
+  user: ansible
+  become: true
+  connection: ssh
+
+  tasks:
+    - name: coping a file
+      copy: 
+        src: /home/ansible/index.html
+        dest: /home/ansible
+        owner: kiran  

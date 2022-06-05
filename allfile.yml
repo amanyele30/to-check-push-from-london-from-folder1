@@ -1,0 +1,17 @@
+--- # fro checkinh multi
+- name: fro chechking all concept
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: crating a file
+      file:
+        path: /home/ansible/aisechfile
+        state: file
+
+    - name: crwating a directory
+      file:
+        path: /home/ansible/aisefolder
+        state: absent
+
+          

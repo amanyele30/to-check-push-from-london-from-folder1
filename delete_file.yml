@@ -1,0 +1,16 @@
+---
+- hosts: webservers[0]
+  become: true
+
+  tasks:
+    - name: deleting a file
+      file:
+        path: /home/ansible/projectfile
+        state: touch
+
+
+    - name: deleting directory
+      file:
+        path: /home/ansible/folder1/folder2/folder3
+        state: directory         
+

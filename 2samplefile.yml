@@ -1,0 +1,12 @@
+--- # for creating directory
+- name: making connections with hosts
+  hosts: all
+  become: yes
+  user: ansible
+  connection: ssh
+
+  tasks:
+    - name: creating a directory
+      file:
+        path: /tmp/folder8 
+        state: directory

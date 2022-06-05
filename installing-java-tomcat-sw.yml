@@ -1,0 +1,47 @@
+--- # procedure for downloading tomcat sw
+- name: first install java software before tomcat
+  hosts: webservers
+  become: true
+  user: ansible
+  connection: ssh
+
+  tasks:
+    - name: install java software
+      yum:
+        name: java
+        state: present
+      when: ansible_os_family == "RedHat"
+    
+    - name: install java sw 
+      apt:
+        name: default-jdk
+        state: present
+      when: ansible_os_family == "Debian"
+    
+
+    - name: download tomcat sw from website
+      get_url:
+          url: https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.79/bin/apache-tomcat-8.5.79.tar.gz
+          dest: /opt 
+
+
+    - name: extracting tomcat downloaded sw file
+      unarchive:
+        src: /opt/apache-tomcat-8.5.79.tar.gz
+        dest: /opt
+        remote_src: yes
+
+    - name: providing executable permissions
+      file:
+        path: /opt/apache-tomcat-8.5.79/bin/startup.sh
+        mode: 0777
+     
+    - name: start tomcat sw service
+      shell: nohup ./startup.sh
+      args:
+        chdir: /opt/apache-tomcat-8.5.79/bin
+                
+          
+  
+
+           

@@ -1,0 +1,12 @@
+--- 
+- name: my loop file for installing multiple softwares
+  hosts: webservers
+  become: yes
+  user: ansible
+  connection: ssh
+
+  tasks:
+    - name: install multiple packages
+      yum:
+        name: ['git','which','docker','mysql','docker','wget',"httpd"]
+        state: installed  

@@ -1,0 +1,8 @@
+--- # for using roles concept
+- hosts: webservers
+  become: yes
+  user: ansible
+  connection: ssh
+
+  roles:
+    - testrole  

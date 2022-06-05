@@ -1,0 +1,9 @@
+--- # for copying of file
+- hosts: all
+  become: true
+  
+  tasks:
+    - name: for copying a file from src to dest
+      copy:
+        src:  ./apachefile
+        dest: /home/ansible    
